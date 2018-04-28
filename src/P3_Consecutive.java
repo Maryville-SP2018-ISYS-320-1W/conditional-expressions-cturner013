@@ -25,14 +25,30 @@ public class P3_Consecutive {
 			System.out.printf( "a: %d, b: %d, c: %d -> ", num1, num2, num3);
 			
 
-			
-			System.out.print("Would you like to do it again (enter 'n' to quit)? ");
+			System.out.printf("a: %d, b: %d, c: %d -> They are not consecutive.", num1, num2, num3);
 			doItAgainResponse = console.next();
-		} while( !doItAgainResponse.equalsIgnoreCase("n"));
-		
+		}
+		while(!doItAgainResponse.equalsIgnoreCase("n"));
 		System.out.println("Thanks!");
 	}
-	
-
-
+	public static boolean areConsecutiveNumbers(int num1, int num2, int num3) {
+		boolean isConsecutive = false;
+		if((num1+num2+num3) ==0) {
+			if((num1==0 || num2==0 || num3==0) && (num1==1 || num2==1 || num3==1)) {
+				isConsecutive = true;
+			}
+			}else {
+				int total=(num1 + num2 + num3);
+				int avg = total / 3;
+				if((avg == num1 && Math.abs(num1-num2)== 1 && Math.abs(num1-num3)==1) || (avg==num2 && Math.abs(num2-num1)==1 && Math.abs(num2-num3)==1) || ((avg == num3 && Math.abs(num3-num2) == 1 &&  Math.abs(num3-num2) == 1))){
+				isConsecutive = true;
+						
+				}
+		
+			}
+			
+		return isConsecutive;
+	}
 }
+			
+			
